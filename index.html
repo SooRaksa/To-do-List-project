@@ -67,7 +67,7 @@
     }
 
     .remove-btn:hover {
-      background-color: rgb(196, 34, 50);
+      background-color: rgb(164, 65, 75);
     }
 
     ul {
@@ -80,7 +80,19 @@
       padding: 15px;
       border-bottom: 1px solid rgb(221, 221, 221);
       background-color: rgb(248, 249, 250);
-  }
+       
+    }
+    .list-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 20px;
+
+    }
+    .task-text {
+      font-size: 15px;
+
+    }
     .task-text {
       font-size: 16px;
       margin-bottom: 10px;
@@ -88,9 +100,13 @@
     }
 
     .button-group {
-      display: flex;
+      display: none;
       gap: 10px;
-      justify-content: flex-start;
+      transition: 0.3s ease;
+    }
+
+    li:hover .button-group{
+      display: flex;
     }
 
     .message {
@@ -123,7 +139,7 @@
         <li v-for="(item, index) in filteredTasks" :key="index">
           <span class="task-text">{{ item }}</span>
           <div class="button-group">
-            <button class="edit-btn" @click="editTask(index)">Edit</button>
+            <button class="edit-btn" @click="editTask(index)">Update</button>
             <button class="remove-btn" @click="confirmDelete(index)">Remove</button>
           </div>
         </li>
